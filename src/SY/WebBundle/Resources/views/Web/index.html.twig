@@ -1,16 +1,35 @@
-Escribe una dirección web: <input type="text" placeholder="http://www.as.com">
-<button onclick="envia()">Send</button>
-
-<div id="web_externa">
-
-
+<div id="content">
+    <form id="SYForm" action="{{path('load_web_ajax')}}" method="POST" >
+        Escribe una dirección web:
+        <input type="text" name="url" id ="url" placeholder="www.as.com" />
+        <input type="submit" value="Send" />
+    </form>
 </div>
+
+<div id="output"></div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script type="application/javascript">
-function envia(){
-    alert("p");
-}
+
+    $(document).ready(function() {
+        $("#SYForm").submit(function(){
+
+            var url=$("#SYForm").attr("action");
+
+            $.post(url,{
+                url:$("#url").val()
+            },function(data){
+                if(data.responseCode==200 ){
+                    $('#output').html(data.html);
+                }
+                else{
+                    alert("Error!!");
+                }
+            });
+            return false;
+        });
+    });
+
 
 </script>
