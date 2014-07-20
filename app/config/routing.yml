@@ -1,0 +1,4 @@
+sy_web:
+    resource: "@SYWebBundle/Resources/config/routing.yml"
+    prefix:   /
+

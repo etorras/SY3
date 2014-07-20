@@ -1,0 +1,7 @@
+parameters:
+#    sy_web.example.class: SY\WebBundle\Example
+
+services:
+#    sy_web.example:
+#        class: %sy_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
